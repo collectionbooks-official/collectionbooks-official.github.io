@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="cjE3OsRYc197bE7cSLrd1pXquEfHIXiK6JGWE7ggRHs" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/app_icon.jpg">
+    <title>Collection Books เว็บไซต์ทางการ</title>
+    
+    <link rel="canonical" href="https://collectionbooks-official.github.io/th/">
+
+    <link rel="alternate" href="https://collectionbooks-official.github.io/" hreflang="en" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/de/" hreflang="de" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/es/" hreflang="es" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/fr/" hreflang="fr" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/hi/" hreflang="hi" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/id/" hreflang="id" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/ja/" hreflang="ja" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/pt-br/" hreflang="pt-br" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/zh-cn/" hreflang="zh-cn" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/zh-tw/" hreflang="zh-tw" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/" hreflang="x-default" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/ko-KR/" hreflang="ko-KR" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/vi/" hreflang="vi" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { 
+            font-family: 'Noto Sans Thai', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            max-width: 960px; 
+            margin: 30px auto; 
+            padding: 20px; 
+            background-color: #f4f7f6; 
+            color: #333; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+        }
+        header { 
+            text-align: center; 
+            padding-bottom: 20px; 
+            border-bottom: 1px solid #eee; 
+            margin-bottom: 30px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+        }
+        .language-switcher { 
+            align-self: flex-end; 
+            margin-top: -10px;
+            margin-bottom: 10px;
+            font-size: 0.9em; 
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            z-index: 10;
+        }
+        .language-switcher select {
+            border: none;
+            background: transparent;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        h1 { color: #007bff; font-size: 2.8em; margin-bottom: 10px; }
+        h2 { color: #555; font-size: 2em; margin-top: 30px; margin-bottom: 15px; }
+        h3 { color: #007bff; font-size: 1.5em; margin-top: 25px; margin-bottom: 10px; }
+        p { margin-bottom: 10px; }
+        ul { list-style: disc; margin-left: 20px; margin-bottom: 10px; }
+        li { margin-bottom: 5px; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .button { display: inline-block; background-color: #007bff; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold; }
+        .button:hover { background-color: #0056b3; }
+        .app-image { display: block; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .app-icon { 
+            width: 120px; 
+            height: 120px; 
+            border-radius: 25%; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            margin-top: 20px;
+        }
+        .screenshots-row { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; margin-bottom: 20px; }
+        .screenshot-container { flex: 1; min-width: 250px; text-align: center; }
+        footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="language-switcher">
+            <label for="language-select">ภาษา:</label>
+            <select id="language-select" onchange="window.location.href=this.value;">
+                <option value="https://collectionbooks-official.github.io/" hreflang="en">English</option>
+                <option value="https://collectionbooks-official.github.io/de/" hreflang="de">Deutsch</option>
+                <option value="https://collectionbooks-official.github.io/es/" hreflang="es">Español</option>
+                <option value="https://collectionbooks-official.github.io/fr/" hreflang="fr">Français</option>
+                <option value="https://collectionbooks-official.github.io/hi/" hreflang="hi">हिन्दी</option>
+                <option value="https://collectionbooks-official.github.io/id/" hreflang="id">Bahasa Indonesia</option>
+                <option value="https://collectionbooks-official.github.io/ja/" hreflang="ja">日本語</option>
+                <option value="https://collectionbooks-official.github.io/pt-br/" hreflang="pt-br">Português (Brasil)</option>
+                <option value="https://collectionbooks-official.github.io/ko-KR/" hreflang="ko-KR">한국어</option>
+                <option value="https://collectionbooks-official.github.io/th/" hreflang="th" selected>ไทย</option>
+                <option value="https://collectionbooks-official.github.io/vi/" hreflang="vi">Tiếng Việt</option>
+                <option value="https://collectionbooks-official.github.io/zh-cn/" hreflang="zh-cn">简体中文</option>
+                <option value="https://collectionbooks-official.github.io/zh-tw/" hreflang="zh-tw">繁體中文</option>
+            </select>
+        </div>
+        <img src="/app_icon.jpg" alt="Collection Books ไอคอนแอป" class="app-icon">
+        <h1>Collection Books - บันทึกภาพถ่ายและบันทึกข้อความ</h1>
+        <p>บันทึกและจัดการพืช สัตว์ และงานอดิเรกอื่นๆ ด้วยรูปภาพและบันทึกย่อ! นี่คือแอปสมุดคู่มือส่วนตัวของคุณสำหรับทุกคอลเลกชันของคุณ</p>
+        <a href="https://play.google.com/store/apps/details?id=com.boroishi.collectionbooks" target="_blank">
+            <img alt="Get it on Google Play" src="https://play.google.com/intl/en/badges/static/images/badges/en_badge_web_generic.png" style="height: 90px;"/>
+        </a>
+    </header>
+
+    <section>
+        <h2>เกี่ยวกับ "Collection Books"</h2>
+        <div class="screenshots-row">
+            <div class="screenshot-container">
+                <img src="/screenshot1.jpg" alt="Collection Books สกรีนช็อต 1" class="app-image">
+            </div>
+            <div class="screenshot-container">
+                <img src="/screenshot2.jpg" alt="Collection Books สกรีนช็อต 2" class="app-image">
+            </div>
+        </div>
+        <p>"Collection Books" เป็นแอปที่ให้คุณบันทึกและจัดการคอลเลกชันและสิ่งที่ค้นพบอันเป็นที่รักทั้งหมดของคุณ เปลี่ยนให้เป็นคู่มือต้นฉบับของคุณเอง ไม่ต้องมีการดำเนินการที่ซับซ้อนหรือความรู้เฉพาะทางใดๆ ทุกคนสามารถทำให้ความหลงใหลของตนเองเป็นรูปธรรมได้อย่างง่ายดาย สะดวก และเป็นอิสระ</p>
+        <p>ตั้งแต่การสังเกตพืชรายวันและคอลเลกชันงานอดิเรกไปจนถึงความทรงจำในการเดินทางและบันทึกการเติบโตของสัตว์เลี้ยง... บันทึกความหลงใหลของคุณได้อย่างง่ายดายด้วยรูปภาพ รูปภาพ และบันทึกย่อ นี่คือสารานุกรมดิจิทัลส่วนตัวของคุณ! เป็นเครื่องมือบันทึกที่มีประโยชน์ในการจัดระเบียบและจัดการการค้นพบและข้อมูลอันมีค่าของคุณ สร้างพื้นที่สมบัติส่วนตัวของคุณเอง</p>
+    </section>
+
+    <section>
+        <h2>สิ่งที่คุณสามารถทำได้ด้วย Collection Books</h2>
+        <h3>1. บันทึกรูปภาพและลงทะเบียนบันทึกย่อ</h3>
+        <ul>
+            <li><strong>ชื่อ (ชื่อเล่น, ชื่อทางวิทยาศาสตร์, ฯลฯ):</strong> ตั้งชื่อได้อย่างอิสระเพื่อให้ตรงกับคอลเลกชันของคุณ</li>
+            <li><strong>การลงทะเบียนรูปภาพ:</strong> บันทึกคอลเลกชันอันมีค่าของคุณด้วยรูปภาพ คุณสามารถลงทะเบียนรูปภาพหลายภาพเพื่อบันทึกจากมุมต่างๆ</li>
+            <li><strong>บันทึกย่อ (คำอธิบายอิสระ):</strong> เขียนความประทับใจ ข้อมูลโดยละเอียด หรือความคิดส่วนตัวของคุณได้อย่างอิสระ</li>
+            <li><strong>ข้อความสำเร็จรูป:</strong> ลงทะเบียนวลีหรือข้อมูลที่ใช้บ่อยเป็นข้อความสำเร็จรูปในการตั้งค่า วางได้ง่ายด้วยปุ่มเดียวเมื่อสร้างหน้า ทำให้สามารถบันทึกได้อย่างมีประสิทธิภาพ</li>
+            <li><strong>ฟังก์ชันแท็ก:</strong> จัดการหน้าโดยการจัดหมวดหมู่ ตั้งค่าแท็กเช่น "หมวดหมู่," "สถานที่," หรือ "สี" เพื่อให้เหมาะกับคอลเลกชันของคุณและจัดระเบียบให้เรียบร้อย</li>
+        </ul>
+
+        <h3>2. แสดงสไตล์ของคุณ! แม่แบบการแสดงผลที่มากมาย</h3>
+        <ul>
+            <li><strong>แม่แบบพื้นฐาน:</strong> เลือกจากวิธีการแสดงผลต่างๆ รวมถึงแม่แบบสไตล์สมุดคู่มือแบบเรียบง่าย</li>
+            <li><strong>การเพิ่มเติมในอนาคต:</strong> เราจะเพิ่มแม่แบบที่สะดวกสบายมากขึ้นอย่างต่อเนื่อง โดยคำนึงถึงคำขอของผู้ใช้</li>
+        </ul>
+
+        <h3>3. เข้าถึงข้อมูลได้ทันที! การแสดงผลและการค้นหาที่ยืดหยุ่น</h3>
+        <ul>
+            <li><strong>ฟังก์ชันการจัดเรียง:</strong> คุณสามารถจัดเรียงคอลเลกชันของคุณตามเงื่อนไขที่เลือก เช่น ชื่อหรือวันที่สร้าง</li>
+            <li><strong>การค้นหาด้วยคำหลัก:</strong> เข้าถึงข้อมูลที่คุณต้องการได้อย่างง่ายดายด้วยการค้นหาด้วยคำหลัก เช่น ชื่อที่เฉพาะเจาะจง เนื้อหาในบันทึกย่อ หรือแท็ก</li>
+        </ul>
+
+        <h3>4. ปกป้องข้อมูลอันมีค่าของคุณ! การจัดการข้อมูลที่ปลอดภัย</h3>
+        <ul>
+            <li><strong>ฟังก์ชันสำรองและกู้คืน:</strong> สำรองข้อมูลของคุณได้อย่างง่ายดายและกู้คืนเมื่อจำเป็น รู้สึกปลอดภัยเมื่อมีการเปลี่ยนอุปกรณ์หรือในกรณีที่ข้อมูลสูญหายโดยไม่ได้ตั้งใจ</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>ทำไมถึงเลือก Collection Books?</h2>
+        <ul>
+            <li><strong>ใช้งานง่ายและยืดหยุ่น:</strong> ไม่ต้องมีการดำเนินการที่ซับซ้อนใดๆ ทุกคนสามารถเริ่มบันทึกได้อย่างง่ายดาย และปรับแต่งการแสดงผลและช่องรายการได้อย่างอิสระ</li>
+            <li><strong>บันทึกส่วนบุคคล:</strong> เชี่ยวชาญในการบันทึกส่วนบุคคล คุณสามารถบันทึก "สิ่งที่ชอบ" ส่วนตัวของคุณได้อย่างเต็มที่</li>
+            <li><strong>เพลิดเพลินกับภาพ:</strong> ด้วยการลงทะเบียนรูปภาพและคุณสมบัติการปรับแต่ง เราทำให้การบันทึกเป็นกระบวนการที่สนุกสนาน</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>คุณสมบัติพรีเมียม (เนื้อหาที่ต้องชำระเงิน)</h2>
+        <p>เวอร์ชันฟรีใช้งานได้เต็มรูปแบบ แต่เรายังมีเนื้อหาที่ต้องชำระเงินสำหรับผู้ที่ต้องการเพิ่มประสิทธิภาพ Collection Books ของตนเอง</p>
+        <ul>
+            <li><strong>การส่งออกรูปภาพหน้า:</strong> หน้าคอลเลกชันที่สร้างขึ้นแต่ละหน้าสามารถส่งออกเป็นรูปภาพ (PDF, JPG) ได้</li>
+            <li><strong>การส่งออกหน้าคุณภาพสูงแบบแบตช์:</strong> ส่งออกหน้าที่บันทึกไว้ในคุณภาพสูงเป็นกลุ่ม ทำให้สามารถพิมพ์หรือแบ่งปันคอลเลกชันของคุณได้อย่างสวยงาม</li>
+            <li><strong>การจัดการข้อมูลคอลเลกชัน:</strong> นำเข้าและส่งออกข้อมูลสำหรับสมุดคอลเลกชันแต่ละเล่ม</li>
+        </ul>
+    </section>
+
+    <section style="text-align: center; margin-top: 40px;">
+        <p style="font-size: 1.2em; font-weight: bold;">เริ่มบันทึกที่ไม่เหมือนใครของคุณด้วย Collection Books วันนี้! ความหลงใหลของคุณจะกลายเป็นรูปธรรมที่นี่</p>
+        <a href="https://play.google.com/store/apps/details?id=com.boroishi.collectionbooks" target="_blank">
+            <img alt="Get it on Google Play" src="https://play.google.com/intl/en/badges/static/images/badges/en_badge_web_generic.png" style="height: 90px;"/>
+        </a>
+    </section>
+
+    <footer>
+        <p>ติดต่อเรา: collectionbooks.official@gmail.com</p>
+        <p>&copy; 2025 Collection Books. สงวนลิขสิทธิ์</p>
+        <p><a href="./privacy-policy.html">นโยบายความเป็นส่วนตัว</a></p>
+    </footer>
+</body>
+</html>
