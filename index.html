@@ -102,41 +102,61 @@
         'id': '/id/',
         'ja': '/ja/',
         'ko': '/ko-KR/',
-        'ko-KR': '/ko-KR/',
+        'ko-KR': '/ko-KR/', // 【重要】ここが大文字小文字混合
         'pt': '/pt-br/',
-        'pt-br': '/pt-br/',
+        'pt-br': '/pt-br/', // 【重要】ここが小文字
         'th': '/th/',
         'vi': '/vi/',
         'zh-cn': '/zh-cn/',
         'zh-tw': '/zh-tw/',
-        'en': '/' // 英語はデフォルトパス
+        'en': '/'
     };
 
-    const storageKey = 'userLangPreference'; // 言語設定を記憶するためのキー
+    const storageKey = 'userLangPreference';
+
+    // パスセグメント（例: 'ko-kr'）から、langMap内の正しいキー（例: 'ko-KR'）を見つけ出すヘルパー関数
+    function findLangKeyFromPath(segment) {
+        // langMap の値からスラッシュを取り除いたものと、小文字のセグメントを比較
+        for (const key in langMap) {
+            if (langMap.hasOwnProperty(key)) {
+                const langPathValue = langMap[key].replace(/\//g, '');
+                // 大文字小文字を無視して比較し、一致すれば langMap の正しいキーを返す
+                if (langPathValue.toLowerCase() === segment) {
+                    return key; 
+                }
+            }
+        }
+        return segment; // 見つからない場合はそのまま返す（通常は発生しない）
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
         const currentPath = window.location.pathname.toLowerCase();
-
+        
         // 1. 現在のページが言語パス（/ja/, /de/ など）の場合、その言語を記憶して処理を終了する
-        //    (自動リダイレクト後の初回、または手動で言語を選択したときに実行)
         if (currentPath !== '/' && currentPath !== '/index.html') {
             const pathSegments = currentPath.split('/').filter(segment => segment);
             if (pathSegments.length === 1) {
-                // パスから言語コードを取得し、記憶する (例: '/ja/' -> 'ja')
-                localStorage.setItem(storageKey, pathSegments[0]);
+                const pathSegment = pathSegments[0]; // 例: 'ko-kr' (全て小文字)
+                
+                // 【修正点】正しい大文字小文字のキー（'ko-KR'）を検索して保存する
+                const correctKey = findLangKeyFromPath(pathSegment);
+                localStorage.setItem(storageKey, correctKey); 
             }
             return;
         }
 
         // ここからはトップページ（/）での処理
         let targetPath = null;
-        const savedLang = localStorage.getItem(storageKey);
+        const savedLang = localStorage.getItem(storageKey); // 例: 'ko-KR' が入っている
 
         if (savedLang) {
             // 2. 記憶された言語があれば、それをターゲットパスとして優先する
-            targetPath = langMap[savedLang];
-        } else {
-            // 3. 記憶がなければ、ブラウザの言語設定を取得する (初回訪問時など)
+            targetPath = langMap[savedLang]; // 'ko-KR' のキーで正常に '/ko-KR/' が取得できるようになった
+        }
+        
+        // 記憶された言語が有効なパスに変換できない場合、または記憶がない場合
+        if (!targetPath) {
+             // 3. 記憶がなければ、ブラウザの言語設定を取得する (初回訪問時など)
             const userLangs = navigator.languages || [navigator.language || navigator.userLanguage];
 
             for (let userLang of userLangs) {
@@ -163,7 +183,6 @@
         }
 
         // 4. リダイレクトの実行
-        // ターゲットパスが見つかり、それが現在の英語のデフォルトパス('/')ではない場合のみリダイレクト
         if (targetPath && targetPath !== '/') {
             window.location.href = targetPath;
         }
