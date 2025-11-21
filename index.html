@@ -92,7 +92,7 @@
         footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 0.9em; }
     </style>
 </head>
-    <script>
+<script>
     // サイトでサポートしている言語コードとパスのマッピング (変更なし)
     const langMap = {
         'de': '/de/',
@@ -109,48 +109,62 @@
         'vi': '/vi/',
         'zh-cn': '/zh-cn/',
         'zh-tw': '/zh-tw/',
-        'en': '/'
+        'en': '/' // 英語はデフォルトパス
     };
+
+    const storageKey = 'userLangPreference'; // 言語設定を記憶するためのキー
 
     document.addEventListener('DOMContentLoaded', function() {
         const currentPath = window.location.pathname.toLowerCase();
 
-        // 1. 自動リダイレクトをスキップする条件の確認
-        // 既に言語パス（例：/ja/）にいる場合は、リダイレクトしない
+        // 1. 現在のページが言語パス（/ja/, /de/ など）の場合、その言語を記憶して処理を終了する
+        //    (自動リダイレクト後の初回、または手動で言語を選択したときに実行)
         if (currentPath !== '/' && currentPath !== '/index.html') {
+            const pathSegments = currentPath.split('/').filter(segment => segment);
+            if (pathSegments.length === 1) {
+                // パスから言語コードを取得し、記憶する (例: '/ja/' -> 'ja')
+                localStorage.setItem(storageKey, pathSegments[0]);
+            }
             return;
         }
 
-        // 2. ユーザーのブラウザ言語を取得（優先度の高い順）
-        const userLangs = navigator.languages || [navigator.language || navigator.userLanguage];
+        // ここからはトップページ（/）での処理
         let targetPath = null;
+        const savedLang = localStorage.getItem(storageKey);
 
-        // 3. 優先度の高い順に言語をチェック
-        for (let userLang of userLangs) {
-            userLang = userLang.toLowerCase();
-            const baseLang = userLang.substring(0, 2);
+        if (savedLang) {
+            // 2. 記憶された言語があれば、それをターゲットパスとして優先する
+            targetPath = langMap[savedLang];
+        } else {
+            // 3. 記憶がなければ、ブラウザの言語設定を取得する (初回訪問時など)
+            const userLangs = navigator.languages || [navigator.language || navigator.userLanguage];
 
-            // 優先度1: 完全一致または特殊な言語コードの一致
-            if (langMap[userLang]) {
-                targetPath = langMap[userLang];
-                break;
-            }
+            for (let userLang of userLangs) {
+                userLang = userLang.toLowerCase();
+                const baseLang = userLang.substring(0, 2);
 
-            // 優先度2: 基本言語コードの一致
-            if (langMap[baseLang]) {
-                if (baseLang === 'zh' && (userLang.includes('tw') || userLang.includes('hk') || userLang.includes('mo'))) {
-                    targetPath = langMap['zh-tw'];
-                } else {
-                    targetPath = langMap[baseLang];
+                // 優先度1: 完全一致または特殊な言語コードの一致
+                if (langMap[userLang]) {
+                    targetPath = langMap[userLang];
+                    break;
                 }
-                break;
+
+                // 優先度2: 基本言語コードの一致
+                if (langMap[baseLang]) {
+                    // 中国語圏の特殊処理
+                    if (baseLang === 'zh' && (userLang.includes('tw') || userLang.includes('hk') || userLang.includes('mo'))) {
+                         targetPath = langMap['zh-tw'];
+                    } else {
+                        targetPath = langMap[baseLang];
+                    }
+                    break;
+                }
             }
         }
 
         // 4. リダイレクトの実行
-        // ターゲットパスが見つかり、それが現在の英語のデフォルトパス('/')ではない場合
+        // ターゲットパスが見つかり、それが現在の英語のデフォルトパス('/')ではない場合のみリダイレクト
         if (targetPath && targetPath !== '/') {
-            // 自動リダイレクト（記憶処理は完全に削除）
             window.location.href = targetPath;
         }
     });
