@@ -93,8 +93,7 @@
     </style>
 </head>
     <script>
-    // サイトでサポートしている言語コードとパスのマッピング
-    // hreflangの定義を元に、ko-KR、pt-br、zh-cn/zh-twなどの特殊なパスに対応させています。
+    // サイトでサポートしている言語コードとパスのマッピング (変更なし)
     const langMap = {
         'de': '/de/',
         'es': '/es/',
@@ -102,34 +101,23 @@
         'hi': '/hi/',
         'id': '/id/',
         'ja': '/ja/',
-        'ko': '/ko-KR/',        // ko-KRがない場合でもko-KRへ誘導
+        'ko': '/ko-KR/',
         'ko-KR': '/ko-KR/',
-        'pt': '/pt-br/',        // pt-brがない場合でもpt-brへ誘導
+        'pt': '/pt-br/',
         'pt-br': '/pt-br/',
         'th': '/th/',
         'vi': '/vi/',
-        'zh-cn': '/zh-cn/',     // 簡体字
-        'zh-tw': '/zh-tw/',     // 繁体字
-        'en': '/'               // 英語はデフォルトパス
+        'zh-cn': '/zh-cn/',
+        'zh-tw': '/zh-tw/',
+        'en': '/'
     };
-    
-    // ユーザーが一度手動で言語を選択した場合に自動リダイレクトを停止するためのキー
-    const storageKey = 'userLangPreference';
 
     document.addEventListener('DOMContentLoaded', function() {
         const currentPath = window.location.pathname.toLowerCase();
 
         // 1. 自動リダイレクトをスキップする条件の確認
-        // a) 既に言語パスにいる場合 (例: /ja/)
-        // b) ユーザーが過去に手動で言語を選択し、それを記憶している場合
-        if (currentPath !== '/' && currentPath !== '/index.html' || localStorage.getItem(storageKey)) {
-            // 言語パスにいる場合、その言語を記憶し、次回以降の自動リダイレクトを停止
-            if (currentPath !== '/' && currentPath !== '/index.html') {
-                const pathSegments = currentPath.split('/').filter(segment => segment);
-                if (pathSegments.length === 1) {
-                    localStorage.setItem(storageKey, pathSegments[0]);
-                }
-            }
+        // 既に言語パス（例：/ja/）にいる場合は、リダイレクトしない
+        if (currentPath !== '/' && currentPath !== '/index.html') {
             return;
         }
 
@@ -140,17 +128,16 @@
         // 3. 優先度の高い順に言語をチェック
         for (let userLang of userLangs) {
             userLang = userLang.toLowerCase();
-            const baseLang = userLang.substring(0, 2); 
-            
-            // 優先度1: 完全一致または特殊な言語コードの一致 (例: ja-JP, zh-CN, ko-KR)
+            const baseLang = userLang.substring(0, 2);
+
+            // 優先度1: 完全一致または特殊な言語コードの一致
             if (langMap[userLang]) {
                 targetPath = langMap[userLang];
                 break;
             }
 
-            // 優先度2: 基本言語コードの一致 (例: ja, de, es)
+            // 優先度2: 基本言語コードの一致
             if (langMap[baseLang]) {
-                // zh-HKやzh-TWなど、繁体字圏の言語コードを優先的にzh-twに誘導
                 if (baseLang === 'zh' && (userLang.includes('tw') || userLang.includes('hk') || userLang.includes('mo'))) {
                     targetPath = langMap['zh-tw'];
                 } else {
@@ -159,15 +146,11 @@
                 break;
             }
         }
-        
+
         // 4. リダイレクトの実行
         // ターゲットパスが見つかり、それが現在の英語のデフォルトパス('/')ではない場合
         if (targetPath && targetPath !== '/') {
-            // リダイレクトが発動したことを記憶（次回訪問時のリダイレクトを防ぐ）
-            const redirectedLang = targetPath.replace(/\//g, '');
-            localStorage.setItem(storageKey, redirectedLang);
-
-            // 自動リダイレクト
+            // 自動リダイレクト（記憶処理は完全に削除）
             window.location.href = targetPath;
         }
     });
