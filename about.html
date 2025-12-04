@@ -9,70 +9,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* 💡 全体的なマージンと文字の調整 */
+        /* 基本スタイル（共通） */
         body { 
             font-family: 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.8; /* 行間を広げました */
+            line-height: 1.8; 
             max-width: 960px; 
-            margin: 40px auto; /* 上下のマージンを増やしました */
-            padding: 30px; /* パディングを増やしました */
+            margin: 40px auto; 
+            padding: 30px; 
             background-color: #f4f7f6; 
             color: #333; 
             border-radius: 8px; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            /* 💡 モバイル対応: 左右のパディングを画面幅に応じて調整 */
+            padding: 20px min(5%, 30px); 
+            box-sizing: border-box; /* paddingを含めて幅を計算 */
         }
         h1 { 
             color: #007bff; 
-            font-size: 2.5em; /* フォントサイズを大きく */
-            margin-bottom: 30px; /* 下のマージンを増やしました */
+            font-size: 2.5em; 
+            margin-bottom: 30px; 
             text-align: center;
         }
         h2 { 
             color: #555; 
             font-size: 1.5em; 
-            margin-top: 40px; /* 上のマージンを増やしました */
+            margin-top: 40px; 
             margin-bottom: 20px; 
             border-bottom: 1px solid #eee;
             padding-bottom: 8px;
         }
-        a { 
-            color: #007bff; 
-            text-decoration: none; 
-        }
-        a:hover { 
-            text-decoration: underline; 
-        }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
         
-        /* 💡 テーブルの調整 */
+        /* テーブルのスタイル（デスクトップ向け） */
         .info-table { 
             width: 100%; 
-            border-collapse: separate; /* セル間の区切りを明確に */
-            border-spacing: 0 10px; /* 行間にスペースを追加 */
+            border-collapse: separate;
+            border-spacing: 0 10px;
             margin-top: 20px; 
             background-color: #fff;
         }
         .info-table th, .info-table td { 
             border: 1px solid #ddd; 
-            padding: 15px; /* パディングを増やしました */
+            padding: 15px;
             text-align: left; 
             font-size: 1em; 
             vertical-align: top;
         }
         .info-table th { 
             background-color: #e9ecef; 
-            width: 35%; 
+            width: 35%; /* 項目名の幅 */
             color: #333; 
         }
-        .info-table tr:first-child th, .info-table tr:first-child td {
-            border-top: 1px solid #ddd;
-        }
         
-        /* 💡 ボタンの調整 */
+        /* ボタン */
         .button { 
             display: inline-block; 
             background-color: #007bff; 
             color: white; 
-            padding: 12px 25px; /* パディングを増やしました */
+            padding: 12px 25px; 
             border-radius: 5px; 
             text-decoration: none; 
             font-weight: bold; 
@@ -80,8 +75,44 @@
         .button:hover { background-color: #0056b3; }
         .back-link { 
             display: block; 
-            margin-top: 50px; /* 上のマージンを大きくしました */
+            margin-top: 50px; 
             text-align: center; 
+        }
+
+        /* 💡 モバイル対応のブレークポイント */
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            h2 { margin-top: 30px; font-size: 1.3em; }
+
+            /* テーブルの表示をブロック要素に変更し、縦並びにする */
+            .info-table, .info-table tbody, .info-table tr, .info-table th, .info-table td {
+                display: block;
+                width: 100%;
+            }
+            
+            /* 行の区切りを明確にする */
+            .info-table tr {
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            /* ヘッダー（項目名）のスタイル */
+            .info-table th {
+                background-color: #007bff; /* 💡 見やすくするため背景色を変更 */
+                color: white;
+                text-align: center;
+                border-bottom: none;
+                padding: 10px;
+            }
+
+            /* データ（値）のスタイル */
+            .info-table td {
+                text-align: center;
+                border-top: none;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -91,7 +122,7 @@
     <h2>App Information</h2>
     <table class="info-table">
         <tr>
-            <th>Developer / Operator</th>
+            <th>Developer</th>
             <td>MGLABO</td>
         </tr>
         <tr>
@@ -107,7 +138,7 @@
             <td><a href="mailto:collectionbooks.official@gmail.com">collectionbooks.official@gmail.com</a></td>
         </tr>
     </table>
-    
+
     <div class="back-link">
         <a href="./" class="button">Back to Home</a>
     </div>
