@@ -113,8 +113,36 @@
     };
 
     const storageKey = 'userLangPreference';
+    const langCookieName = 'userLangPref'; // クッキー名
 
-    // パスセグメント（例: 'ko-kr'）から、langMap内の正しいキー（例: 'ko-KR'）を見つけ出すヘルパー関数
+    // --- クッキーヘルパー関数 ---
+    // クッキーに値を設定 (365日間有効)
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        // path=/ を設定することで、全ページでクッキーが有効になる
+        document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
+    }
+
+    // クッキーから値を読み込む
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+    // --- クッキーヘルパー関数 終了 ---
+
+
+    // パスセグメント（例: 'ko-kr'）から、langMap内の正しいキーを見つけ出すヘルパー関数
     function findLangKeyFromPath(segment) {
         for (const key in langMap) {
             if (langMap.hasOwnProperty(key)) {
@@ -127,25 +155,22 @@
         return segment;
     }
 
-    // 言語セレクターで変更があった際の処理 (グローバル関数として定義)
+    // 言語セレクターで変更があった際の処理
     function languageSelectHandler(selectElement) {
         const selectedUrl = selectElement.value;
         const url = new URL(selectedUrl);
-        // パスを小文字化し、スラッシュを削除 ('ja', 'ko-kr', or '' for root)
-        const path = url.pathname.toLowerCase().replace(/\//g, ''); 
+        const path = url.pathname.toLowerCase().replace(/\//g, '');
 
-        let selectedKey = 'en'; // デフォルトは 'en'
+        let selectedKey = 'en'; 
         
         if (path) {
-            // パスがあれば、正しいキーを見つけて selectedKey に設定
             selectedKey = findLangKeyFromPath(path);
         } else {
-            // パスがない場合、それはルート('/')、つまり 'en' である
             selectedKey = 'en';
         }
 
-        // 選択された言語を永続的に記憶する
-        localStorage.setItem(storageKey, selectedKey);
+        // ★★★ 修正点: クッキーに言語を保存する ★★★
+        setCookie(langCookieName, selectedKey, 365); // 選択された言語をクッキーに永続的に記憶する (365日)
         
         // ページ遷移を実行する
         window.location.href = selectedUrl;
@@ -153,32 +178,23 @@
 
 
     // =======================================================
-    // 【最重要修正点】
-    // DOMContentLoadedを待たずに、即座に'en'設定をチェックする
+    // 【最優先処理】クッキーから言語設定をチェックし、リダイレクトを制御する
     // =======================================================
 
     const currentPath = window.location.pathname.toLowerCase();
-    const savedLang = localStorage.getItem(storageKey);
+    
+    // ★★★ 修正点: クッキーから言語を取得する ★★★
+    const savedLang = getCookie(langCookieName); 
 
     if (currentPath === '/' || currentPath === '/index.html') {
         // トップページにいる場合、記憶された言語が 'en' なら即座にスクリプトを終了
         if (savedLang === 'en') {
-            // 'en' が記憶されているため、他のリダイレクト処理（ブラウザ言語チェックなど）を全て無視
-            // これが、日本語への強制リダイレクトを防ぐための最優先処理となる
-            
-            // 【注意】このブロック内で return; すると、document.addEventListener('DOMContentLoaded', ...) より前の
-            // グローバルスコープから抜けてしまうため、addEventListener は実行されるが、
-            // DOMContentLoaded 内のロジックをスキップさせるため、 savedLang の再チェックを DOMContentLoaded 内で行う
-            // または、DOMContentLoaded の実行自体を制御する。
-            
-            // ここでは、スクリプトの残りの部分をラップする関数を定義して、その実行を停止することで代用する
             window.skipRedirectLogic = true;
         }
     }
 
 
     document.addEventListener('DOMContentLoaded', function() {
-        // 早期チェックでスキップフラグが立っていたら、DOMロード後の処理を中断
         if (window.skipRedirectLogic) {
             return;
         }
@@ -191,10 +207,12 @@
             if (pathSegments.length === 1) {
                 const pathSegment = pathSegments[0];
                 const correctKey = findLangKeyFromPath(pathSegment);
-                localStorage.setItem(storageKey, correctKey); // 言語を記憶
+                
+                // ★★★ 修正点: クッキーに言語を保存する ★★★
+                setCookie(langCookieName, correctKey, 365); // 言語をクッキーに記憶 (365日)
             }
             
-            // セレクターに現在の言語を反映させる
+            // セレクターに現在の言語を反映させる（中略）
             if (languageSelect) {
                 const currentUrlPath = window.location.pathname.replace(/\/$/, '');
                 const options = languageSelect.options;
@@ -212,9 +230,9 @@
         // 2. ここからはトップページ（/）での処理
 
         let targetPath = null;
-        // savedLang はグローバルスコープで取得済み
+        // savedLang はグローバルスコープでクッキーから取得済み
 
-        // 記憶された言語があれば、それをターゲットパスとして優先する (savedLangが'en'の場合は既にスキップされているはず)
+        // 記憶された言語があれば、それをターゲットパスとして優先する (savedLangが'en'の場合は既にスキップされている)
         if (savedLang) {
             targetPath = langMap[savedLang]; 
         }
