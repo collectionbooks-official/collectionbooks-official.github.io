@@ -93,7 +93,6 @@
     </style>
 </head>
 <script>
-    // サイトでサポートしている言語コードとパスのマッピング
     const langMap = {
         'de': '/de/',
         'es': '/es/',
@@ -112,11 +111,9 @@
         'en': '/'
     };
 
-    const storageKey = 'userLangPreference';
-    const langCookieName = 'userLangPref'; // クッキー名
+    const langCookieName = 'userLangPref';
 
-    // --- クッキーヘルパー関数 ---
-    // クッキーに値を設定 (365日間有効)
+    // --- Cookie Helper Functions ---
     function setCookie(name, value, days) {
         let expires = "";
         if (days) {
@@ -124,11 +121,9 @@
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             expires = "; expires=" + date.toUTCString();
         }
-        // path=/ を設定することで、全ページでクッキーが有効になる
         document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
     }
 
-    // クッキーから値を読み込む
     function getCookie(name) {
         const nameEQ = name + "=";
         const ca = document.cookie.split(';');
@@ -139,10 +134,9 @@
         }
         return null;
     }
-    // --- クッキーヘルパー関数 終了 ---
+    // --- End Cookie Helper Functions ---
 
 
-    // パスセグメント（例: 'ko-kr'）から、langMap内の正しいキーを見つけ出すヘルパー関数
     function findLangKeyFromPath(segment) {
         for (const key in langMap) {
             if (langMap.hasOwnProperty(key)) {
@@ -155,7 +149,6 @@
         return segment;
     }
 
-    // 言語セレクターで変更があった際の処理
     function languageSelectHandler(selectElement) {
         const selectedUrl = selectElement.value;
         const url = new URL(selectedUrl);
@@ -169,50 +162,31 @@
             selectedKey = 'en';
         }
 
-        // ★★★ 修正点: クッキーに言語を保存する ★★★
-        setCookie(langCookieName, selectedKey, 365); // 選択された言語をクッキーに永続的に記憶する (365日)
+        // Save selected language to cookie
+        setCookie(langCookieName, selectedKey, 365); 
         
-        // ページ遷移を実行する
+        // Navigate to the selected page
         window.location.href = selectedUrl;
     }
 
 
-    // =======================================================
-    // 【最優先処理】クッキーから言語設定をチェックし、リダイレクトを制御する
-    // =======================================================
-
-    const currentPath = window.location.pathname.toLowerCase();
-    
-    // ★★★ 修正点: クッキーから言語を取得する ★★★
-    const savedLang = getCookie(langCookieName); 
-
-    if (currentPath === '/' || currentPath === '/index.html') {
-        // トップページにいる場合、記憶された言語が 'en' なら即座にスクリプトを終了
-        if (savedLang === 'en') {
-            window.skipRedirectLogic = true;
-        }
-    }
-
-
     document.addEventListener('DOMContentLoaded', function() {
-        if (window.skipRedirectLogic) {
-            return;
-        }
-
+        const currentPath = window.location.pathname.toLowerCase();
         const languageSelect = document.getElementById('language-select');
+        const savedLang = getCookie(langCookieName); 
 
-        // 1. 現在のページが言語パス（/ja/, /de/ など）の場合、その言語を記憶し、セレクターを更新して処理を終了する
+        // 1. If on a language path (/ja/, /de/, etc.), save cookie and update selector
         if (currentPath !== '/' && currentPath !== '/index.html') {
             const pathSegments = currentPath.split('/').filter(segment => segment);
             if (pathSegments.length === 1) {
                 const pathSegment = pathSegments[0];
                 const correctKey = findLangKeyFromPath(pathSegment);
                 
-                // ★★★ 修正点: クッキーに言語を保存する ★★★
-                setCookie(langCookieName, correctKey, 365); // 言語をクッキーに記憶 (365日)
+                // Save the current language to cookie
+                setCookie(langCookieName, correctKey, 365); 
             }
             
-            // セレクターに現在の言語を反映させる（中略）
+            // Set the correct option as selected in the dropdown
             if (languageSelect) {
                 const currentUrlPath = window.location.pathname.replace(/\/$/, '');
                 const options = languageSelect.options;
@@ -227,50 +201,11 @@
             return;
         }
 
-        // 2. ここからはトップページ（/）での処理
-
-        let targetPath = null;
-        // savedLang はグローバルスコープでクッキーから取得済み
-
-        // 記憶された言語があれば、それをターゲットパスとして優先する (savedLangが'en'の場合は既にスキップされている)
-        if (savedLang) {
-            targetPath = langMap[savedLang]; 
-        }
-        
-        // 3. 記憶がない場合（初回訪問）、ブラウザの言語設定を取得する
-        if (!targetPath) {
-            const userLangs = navigator.languages || [navigator.language || navigator.userLanguage];
-
-            for (let userLang of userLangs) {
-                userLang = userLang.toLowerCase();
-                const baseLang = userLang.substring(0, 2);
-
-                if (langMap[userLang]) {
-                    targetPath = langMap[userLang];
-                    break;
-                }
-                if (langMap[baseLang]) {
-                    // 中国語圏の特殊処理
-                    if (baseLang === 'zh' && (userLang.includes('tw') || userLang.includes('hk') || userLang.includes('mo'))) {
-                         targetPath = langMap['zh-tw'];
-                    } else {
-                        targetPath = langMap[baseLang];
-                    }
-                    break;
-                }
-            }
-        }
-
-        // 4. リダイレクトの実行
-        if (targetPath && targetPath !== '/') {
-            window.location.href = targetPath;
-            return;
-        }
-        
-        // 5. リダイレクトがなかった場合、セレクターに記憶された言語（en以外）を反映
+        // 2. If on the root page ('/'), update selector based on saved cookie
         if (languageSelect && savedLang && savedLang !== 'en') {
             const baseUrl = 'https://collectionbooks-official.github.io';
             if (langMap[savedLang]) {
+                // Restore the previously selected language in the dropdown
                 languageSelect.value = baseUrl + langMap[savedLang];
             }
         }
