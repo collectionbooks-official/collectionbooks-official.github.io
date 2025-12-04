@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Collection Books</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* index.htmlと同じ body, header, a, h1, h2, table のスタイルをここにコピー */
+        /* 💡 全体的なマージンと文字の調整 */
         body { 
             font-family: 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6; 
+            line-height: 1.8; /* 行間を広げました */
             max-width: 960px; 
-            margin: 30px auto; 
-            padding: 20px; 
+            margin: 40px auto; /* 上下のマージンを増やしました */
+            padding: 30px; /* パディングを増やしました */
             background-color: #f4f7f6; 
             color: #333; 
             border-radius: 8px; 
@@ -19,20 +23,17 @@
         }
         h1 { 
             color: #007bff; 
-            font-size: 2em; 
-            margin-bottom: 20px; 
+            font-size: 2.5em; /* フォントサイズを大きく */
+            margin-bottom: 30px; /* 下のマージンを増やしました */
             text-align: center;
         }
         h2 { 
             color: #555; 
             font-size: 1.5em; 
-            margin-top: 30px; 
-            margin-bottom: 15px; 
+            margin-top: 40px; /* 上のマージンを増やしました */
+            margin-bottom: 20px; 
             border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-        p { 
-            margin-bottom: 15px; 
+            padding-bottom: 8px;
         }
         a { 
             color: #007bff; 
@@ -41,28 +42,37 @@
         a:hover { 
             text-decoration: underline; 
         }
+        
+        /* 💡 テーブルの調整 */
         .info-table { 
             width: 100%; 
-            border-collapse: collapse; 
+            border-collapse: separate; /* セル間の区切りを明確に */
+            border-spacing: 0 10px; /* 行間にスペースを追加 */
             margin-top: 20px; 
             background-color: #fff;
         }
         .info-table th, .info-table td { 
             border: 1px solid #ddd; 
-            padding: 12px; 
+            padding: 15px; /* パディングを増やしました */
             text-align: left; 
-            font-size: 0.95em;
+            font-size: 1em; 
+            vertical-align: top;
         }
         .info-table th { 
             background-color: #e9ecef; 
             width: 35%; 
             color: #333; 
         }
+        .info-table tr:first-child th, .info-table tr:first-child td {
+            border-top: 1px solid #ddd;
+        }
+        
+        /* 💡 ボタンの調整 */
         .button { 
             display: inline-block; 
             background-color: #007bff; 
             color: white; 
-            padding: 10px 20px; 
+            padding: 12px 25px; /* パディングを増やしました */
             border-radius: 5px; 
             text-decoration: none; 
             font-weight: bold; 
@@ -70,7 +80,7 @@
         .button:hover { background-color: #0056b3; }
         .back-link { 
             display: block; 
-            margin-top: 40px; 
+            margin-top: 50px; /* 上のマージンを大きくしました */
             text-align: center; 
         }
     </style>
@@ -97,13 +107,7 @@
             <td><a href="mailto:collectionbooks.official@gmail.com">collectionbooks.official@gmail.com</a></td>
         </tr>
     </table>
-
-    <h2 style="margin-top: 40px;">Our Mission</h2>
-    <p>
-        Collection Books is a personal digital journal app designed to support users in recording and managing their collections.
-        We are committed to continuous improvement based on your valuable feedback.
-    </p>
-
+    
     <div class="back-link">
         <a href="./" class="button">Back to Home</a>
     </div>
