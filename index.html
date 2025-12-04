@@ -1,215 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="8qdy2UpVqNfmxwQLnrTkkeKP2pkz00M-Y74bzu04hNE" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/app_icon.jpg">
-    <title>Collection Books Official Website</title>
-    
-    <link rel="canonical" href="https://collectionbooks-official.github.io/">
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="8qdy2UpVqNfmxwQLnrTkkeKP2pkz00M-Y74bzu04hNE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/app_icon.jpg">
+    <title>Collection Books Official Website</title>
+    
+    <link rel="canonical" href="https://collectionbooks-official.github.io/">
 
-    <link rel="alternate" href="https://collectionbooks-official.github.io/" hreflang="en" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/de/" hreflang="de" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/es/" hreflang="es" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/fr/" hreflang="fr" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/hi/" hreflang="hi" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/id/" hreflang="id" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/ja/" hreflang="ja" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/ko-KR/" hreflang="ko-KR" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/pt-br/" hreflang="pt-br" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/th/" hreflang="th" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/vi/" hreflang="vi" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/zh-cn/" hreflang="zh-cn" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/zh-tw/" hreflang="zh-tw" />
-    <link rel="alternate" href="https://collectionbooks-official.github.io/" hreflang="x-default" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/" hreflang="en" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/de/" hreflang="de" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/es/" hreflang="es" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/fr/" hreflang="fr" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/hi/" hreflang="hi" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/id/" hreflang="id" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/ja/" hreflang="ja" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/ko-KR/" hreflang="ko-KR" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/pt-br/" hreflang="pt-br" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/th/" hreflang="th" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/vi/" hreflang="vi" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/zh-cn/" hreflang="zh-cn" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/zh-tw/" hreflang="zh-tw" />
+    <link rel="alternate" href="https://collectionbooks-official.github.io/" hreflang="x-default" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        body { 
-            font-family: 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6; 
-            max-width: 960px; 
-            margin: 30px auto; 
-            padding: 20px; 
-            background-color: #f4f7f6; 
-            color: #333; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-        }
-        header { 
-            text-align: center; 
-            padding-bottom: 20px; 
-            border-bottom: 1px solid #eee; 
-            margin-bottom: 30px; 
-            display: flex; /* Flexboxに変更 */
-            flex-direction: column; 
-            align-items: center;
-        }
-        
-        /* Language Switcher Styles */
-        .language-switcher { 
-            align-self: flex-end; 
-            margin-top: -10px;
-            margin-bottom: 10px;
-            font-size: 0.9em; 
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 5px;
-            z-index: 10;
-        }
-        .language-switcher select {
-            border: none;
-            background: transparent;
-            font-size: 1em;
-            cursor: pointer;
-        }
-        h1 { color: #007bff; font-size: 2.8em; margin-bottom: 10px; }
-        h2 { color: #555; font-size: 2em; margin-top: 30px; margin-bottom: 15px; }
-        h3 { color: #007bff; font-size: 1.5em; margin-top: 25px; margin-bottom: 10px; }
-        p { margin-bottom: 10px; }
-        ul { list-style: disc; margin-left: 20px; margin-bottom: 10px; }
-        li { margin-bottom: 5px; }
-        a { color: #007bff; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .button { display: inline-block; background-color: #007bff; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold; }
-        .button:hover { background-color: #0056b3; }
-        .app-image { display: block; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .app-icon { 
-            width: 120px; 
-            height: 120px; 
-            border-radius: 25%; 
-            margin-bottom: 20px; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-            margin-top: 20px;
-        }
-        .screenshots-row { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; margin-bottom: 20px; }
-        .screenshot-container { flex: 1; min-width: 250px; text-align: center; }
-        footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 0.9em; }
-    </style>
+    <style>
+        body { 
+            font-family: 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            max-width: 960px; 
+            margin: 30px auto; 
+            padding: 20px; 
+            background-color: #f4f7f6; 
+            color: #333; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+        }
+        header { 
+            text-align: center; 
+            padding-bottom: 20px; 
+            border-bottom: 1px solid #eee; 
+            margin-bottom: 30px; 
+            display: flex; /* Flexboxに変更 */
+            flex-direction: column; 
+            align-items: center;
+        }
+        
+        /* Language Switcher Styles */
+        .language-switcher { 
+            align-self: flex-end; 
+            margin-top: -10px;
+            margin-bottom: 10px;
+            font-size: 0.9em; 
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            z-index: 10;
+        }
+        .language-switcher select {
+            border: none;
+            background: transparent;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        h1 { color: #007bff; font-size: 2.8em; margin-bottom: 10px; }
+        h2 { color: #555; font-size: 2em; margin-top: 30px; margin-bottom: 15px; }
+        h3 { color: #007bff; font-size: 1.5em; margin-top: 25px; margin-bottom: 10px; }
+        p { margin-bottom: 10px; }
+        ul { list-style: disc; margin-left: 20px; margin-bottom: 10px; }
+        li { margin-bottom: 5px; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .button { display: inline-block; background-color: #007bff; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold; }
+        .button:hover { background-color: #0056b3; }
+        .app-image { display: block; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .app-icon { 
+            width: 120px; 
+            height: 120px; 
+            border-radius: 25%; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            margin-top: 20px;
+        }
+        .screenshots-row { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; margin-bottom: 20px; }
+        .screenshot-container { flex: 1; min-width: 250px; text-align: center; }
+        footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 0.9em; }
+    </style>
 </head>
 <script>
-    // サイトでサポートしている言語コードとパスのマッピング
-    const langMap = {
-        'de': '/de/',
-        'es': '/es/',
-        'fr': '/fr/',
-        'hi': '/hi/',
-        'id': '/id/',
-        'ja': '/ja/',
-        'ko': '/ko-KR/',
-        'ko-KR': '/ko-KR/',
-        'pt': '/pt-br/',
-        'pt-br': '/pt-br/',
-        'th': '/th/',
-        'vi': '/vi/',
-        'zh-cn': '/zh-cn/',
-        'zh-tw': '/zh-tw/',
-        'en': '/'
-    };
+    // サイトでサポートしている言語コードとパスのマッピング (変更なし)
+    const langMap = {
+        'de': '/de/',
+        'es': '/es/',
+        'fr': '/fr/',
+        'hi': '/hi/',
+        'id': '/id/',
+        'ja': '/ja/',
+        'ko': '/ko-KR/',
+        'ko-KR': '/ko-KR/', // 【重要】ここが大文字小文字混合
+        'pt': '/pt-br/',
+        'pt-br': '/pt-br/', // 【重要】ここが小文字
+        'th': '/th/',
+        'vi': '/vi/',
+        'zh-cn': '/zh-cn/',
+        'zh-tw': '/zh-tw/',
+        'en': '/'
+    };
 
-    const storageKey = 'userLangPreference';
+    const storageKey = 'userLangPreference';
 
-    // パスセグメント（例: 'ko-kr'）から、langMap内の正しいキー（例: 'ko-KR'）を見つけ出すヘルパー関数
-    function findLangKeyFromPath(segment) {
-        for (const key in langMap) {
-            if (langMap.hasOwnProperty(key)) {
-                const langPathValue = langMap[key].replace(/\//g, '');
-                if (langPathValue.toLowerCase() === segment) {
-                    return key; 
-                }
-            }
-        }
-        return segment;
-    }
+    // パスセグメント（例: 'ko-kr'）から、langMap内の正しいキー（例: 'ko-KR'）を見つけ出すヘルパー関数
+    function findLangKeyFromPath(segment) {
+        // langMap の値からスラッシュを取り除いたものと、小文字のセグメントを比較
+        for (const key in langMap) {
+            if (langMap.hasOwnProperty(key)) {
+                const langPathValue = langMap[key].replace(/\//g, '');
+                // 大文字小文字を無視して比較し、一致すれば langMap の正しいキーを返す
+                if (langPathValue.toLowerCase() === segment) {
+                    return key; 
+                }
+            }
+        }
+        return segment; // 見つからない場合はそのまま返す（通常は発生しない）
+    }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const currentPath = window.location.pathname.toLowerCase();
-        const languageSelect = document.getElementById('language-select');
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPath = window.location.pathname.toLowerCase();
+        
+        // 1. 現在のページが言語パス（/ja/, /de/ など）の場合、その言語を記憶して処理を終了する
+        if (currentPath !== '/' && currentPath !== '/index.html') {
+            const pathSegments = currentPath.split('/').filter(segment => segment);
+            if (pathSegments.length === 1) {
+                const pathSegment = pathSegments[0]; // 例: 'ko-kr' (全て小文字)
+                
+                // 【修正点】正しい大文字小文字のキー（'ko-KR'）を検索して保存する
+                const correctKey = findLangKeyFromPath(pathSegment);
+                localStorage.setItem(storageKey, correctKey); 
+            }
+            return;
+        }
 
-        // 1. 言語パスの場合：言語を記憶し、セレクターを更新して処理を終了
-        if (currentPath !== '/' && currentPath !== '/index.html') {
-            const pathSegments = currentPath.split('/').filter(segment => segment);
-            if (pathSegments.length === 1) {
-                const pathSegment = pathSegments[0];
-                const correctKey = findLangKeyFromPath(pathSegment);
-                localStorage.setItem(storageKey, correctKey); // 言語を記憶
-            
-                // セレクターに現在の言語を反映させる
-                const options = languageSelect.options;
-                const currentUrlPath = window.location.pathname.replace(/\/$/, ''); // 末尾のスラッシュを削除
-                for(let i = 0; i < options.length; i++) {
-                    const optionPath = new URL(options[i].value).pathname.replace(/\/$/, '');
-                    if (optionPath === currentUrlPath) {
-                        options[i].selected = true;
-                        break;
-                    }
-                }
-            }
-            return;
-        }
+        // ここからはトップページ（/）での処理
+        let targetPath = null;
+        const savedLang = localStorage.getItem(storageKey); // 例: 'ko-KR' が入っている
 
-        // 2. ここからはトップページ（/）での処理
+        if (savedLang) {
+            // 2. 記憶された言語があれば、それをターゲットパスとして優先する
+            targetPath = langMap[savedLang]; // 'ko-KR' のキーで正常に '/ko-KR/' が取得できるようになった
+        }
+        
+        // 記憶された言語が有効なパスに変換できない場合、または記憶がない場合
+        if (!targetPath) {
+             // 3. 記憶がなければ、ブラウザの言語設定を取得する (初回訪問時など)
+            const userLangs = navigator.languages || [navigator.language || navigator.userLanguage];
 
-        let targetPath = null;
-        const savedLang = localStorage.getItem(storageKey);
+            for (let userLang of userLangs) {
+                userLang = userLang.toLowerCase();
+                const baseLang = userLang.substring(0, 2);
 
-        if (savedLang) {
-            // A. 記憶された言語があれば、それをターゲットパスとして優先する (手動選択の優先)
-            targetPath = langMap[savedLang];
-        } else {
-            // B. 記憶がなければ、ブラウザの言語設定を取得する (初回訪問時の利便性)
-            const userLangs = navigator.languages || [navigator.language || navigator.userLanguage];
-            
-            for (let userLang of userLangs) {
-                userLang = userLang.toLowerCase();
-                const baseLang = userLang.substring(0, 2);
+                // 優先度1: 完全一致または特殊な言語コードの一致
+                if (langMap[userLang]) {
+                    targetPath = langMap[userLang];
+                    break;
+                }
 
-                // 優先度1: 完全一致または特殊な言語コードの一致
-                if (langMap[userLang]) {
-                    targetPath = langMap[userLang];
-                    break;
-                }
+                // 優先度2: 基本言語コードの一致
+                if (langMap[baseLang]) {
+                    // 中国語圏の特殊処理
+                    if (baseLang === 'zh' && (userLang.includes('tw') || userLang.includes('hk') || userLang.includes('mo'))) {
+                         targetPath = langMap['zh-tw'];
+                    } else {
+                        targetPath = langMap[baseLang];
+                    }
+                    break;
+                }
+            }
+        }
 
-                // 優先度2: 基本言語コードの一致
-                if (langMap[baseLang]) {
-                    // 中国語圏の特殊処理
-                    if (baseLang === 'zh' && (userLang.includes('tw') || userLang.includes('hk') || userLang.includes('mo'))) {
-                         targetPath = langMap['zh-tw'];
-                    } else {
-                        targetPath = langMap[baseLang];
-                    }
-                    break;
-                }
-            }
-        }
-
-        // 3. リダイレクトの実行
-        // targetPath が存在し、かつ '/' ではない（enではない）場合にリダイレクトする
-        // これにより、'en'が記憶されている場合はリダイレクトがスキップされる
-        if (targetPath && targetPath !== '/') {
-            window.location.href = targetPath;
-            return; // リダイレクトしたら終了
-        }
-        
-        // 4. リダイレクトがなかった場合、セレクターに記憶された言語を反映させる
-        if (languageSelect && savedLang && savedLang !== 'en') {
-            const baseUrl = 'https://collectionbooks-official.github.io';
-            languageSelect.value = baseUrl + langMap[savedLang];
-        }
-        // savedLangが 'en' の場合や記憶がない場合は、デフォルトで 'English' が選択されたままになる
-    });
+        // 4. リダイレクトの実行
+        if (targetPath && targetPath !== '/') {
+            window.location.href = targetPath;
+        }
+    });
 </script>
 <body>
-    <header>
-        <div class="language-switcher">
-            <label for="language-select">Language:</label>
-            <select id="language-select" onchange="window.location.href=this.value;">
-                <option value="https://collectionbooks-official.github.io/" hreflang="en" selected>English</option>
+    <header>
+        <div class="language-switcher">
+            <label for="language-select">Language:</label>
+            <select id="language-select" onchange="window.location.href=this.value;">
+                <option value="https://collectionbooks-official.github.io/" hreflang="en" selected>English</option>
                 <option value="https://collectionbooks-official.github.io/de/" hreflang="de">Deutsch</option>
                 <option value="https://collectionbooks-official.github.io/es/" hreflang="es">Español</option>
                 <option value="https://collectionbooks-official.github.io/fr/" hreflang="fr">Français</option>
@@ -222,89 +206,89 @@
                 <option value="https://collectionbooks-official.github.io/vi/" hreflang="vi">Tiếng Việt</option>
                 <option value="https://collectionbooks-official.github.io/zh-cn/" hreflang="zh-cn">简体中文</option>
                 <option value="https://collectionbooks-official.github.io/zh-tw/" hreflang="zh-tw">繁體中文</option>
-            </select>
-        </div>
-        <img src="/app_icon.jpg" alt="Collection Books App Icon" class="app-icon">
-        <h1>Collection Books - A Photo & Memo Journal</h1>
-        <p>Record and manage plants, animals, and other hobbies with photos and notes! This is your personal guidebook app for all your collections.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.boroishi.collectionbooks" target="_blank">
-            <img alt="Get it on Google Play" src="https://play.google.com/intl/en/badges/static/images/badges/en_badge_web_generic.png" style="height: 90px;"/>
-        </a>
-    </header>
+            </select>
+        </div>
+        <img src="/app_icon.jpg" alt="Collection Books App Icon" class="app-icon">
+        <h1>Collection Books - A Photo & Memo Journal</h1>
+        <p>Record and manage plants, animals, and other hobbies with photos and notes! This is your personal guidebook app for all your collections.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.boroishi.collectionbooks" target="_blank">
+            <img alt="Get it on Google Play" src="https://play.google.com/intl/en/badges/static/images/badges/en_badge_web_generic.png" style="height: 90px;"/>
+        </a>
+    </header>
 
-    <section>
-        <h2>About "Collection Books"</h2>
-        <div class="screenshots-row">
-            <div class="screenshot-container">
-                <img src="/screenshot1.jpg" alt="Collection Books Screenshot 1" class="app-image">
-            </div>
-            <div class="screenshot-container">
-                <img src="/screenshot2.jpg" alt="Collection Books Screenshot 2" class="app-image">
-            </div>
-        </div>
-        <p>"Collection Books" is an app that lets you record and manage all your cherished collections and discoveries, turning them into your very own original guidebook. No complex operations or specialized knowledge are required. Anyone can easily, conveniently, and freely give shape to their passions.</p>
-        <p>From daily plant observations and hobby collections to travel memories and pet growth logs... easily record your passions with photos, images, and notes. This is your personal digital encyclopedia! It's a handy journaling tool to organize and manage your valuable discoveries and data, creating your very own treasure space.</p>
-    </section>
+    <section>
+        <h2>About "Collection Books"</h2>
+        <div class="screenshots-row">
+            <div class="screenshot-container">
+                <img src="/screenshot1.jpg" alt="Collection Books Screenshot 1" class="app-image">
+            </div>
+            <div class="screenshot-container">
+                <img src="/screenshot2.jpg" alt="Collection Books Screenshot 2" class="app-image">
+            </div>
+        </div>
+        <p>"Collection Books" is an app that lets you record and manage all your cherished collections and discoveries, turning them into your very own original guidebook. No complex operations or specialized knowledge are required. Anyone can easily, conveniently, and freely give shape to their passions.</p>
+        <p>From daily plant observations and hobby collections to travel memories and pet growth logs... easily record your passions with photos, images, and notes. This is your personal digital encyclopedia! It's a handy journaling tool to organize and manage your valuable discoveries and data, creating your very own treasure space.</p>
+    </section>
 
-    <section>
-        <h2>What you can do with Collection Books</h2>
-        <h3>1. Save Photos & Register Memos</h3>
-        <ul>
-            <li><strong>Name (Nickname, Scientific Name, etc.):</strong> Freely set titles to match your collections.</li>
-            <li><strong>Photo Registration:</strong> Record your valuable collections with photos. You can register multiple images to capture records from various angles.</li>
-            <li><strong>Memo (Free Description):</strong> Freely write down your impressions, detailed information, or personal thoughts.</li>
-            <li><strong>Canned Text:</strong> Register frequently used phrases or information as canned text in the settings. Easily paste them with a single button when creating a page, allowing for efficient record-keeping.</li>
-            <li><strong>Tagging Function:</strong> Manage pages by categorizing them. Set tags like "Category," "Location," or "Color" to suit your collection and organize it neatly.</li>
-        </ul>
+    <section>
+        <h2>What you can do with Collection Books</h2>
+        <h3>1. Save Photos & Register Memos</h3>
+        <ul>
+            <li><strong>Name (Nickname, Scientific Name, etc.):</strong> Freely set titles to match your collections.</li>
+            <li><strong>Photo Registration:</strong> Record your valuable collections with photos. You can register multiple images to capture records from various angles.</li>
+            <li><strong>Memo (Free Description):</strong> Freely write down your impressions, detailed information, or personal thoughts.</li>
+            <li><strong>Canned Text:</strong> Register frequently used phrases or information as canned text in the settings. Easily paste them with a single button when creating a page, allowing for efficient record-keeping.</li>
+            <li><strong>Tagging Function:</strong> Manage pages by categorizing them. Set tags like "Category," "Location," or "Color" to suit your collection and organize it neatly.</li>
+        </ul>
 
-        <h3>2. Showcase Your Style! Abundant Display Templates</h3>
-        <ul>
-            <li><strong>Basic Templates:</strong> Choose from various display methods, including simple guidebook-style templates.</li>
-            <li><strong>Future Additions:</strong> We will continually add more convenient templates, taking user requests into account.</li>
-        </ul>
+        <h3>2. Showcase Your Style! Abundant Display Templates</h3>
+        <ul>
+            <li><strong>Basic Templates:</strong> Choose from various display methods, including simple guidebook-style templates.</li>
+            <li><strong>Future Additions:</strong> We will continually add more convenient templates, taking user requests into account.</li>
+        </ul>
 
-        <h3>3. Instant Access to Information! Flexible Display & Search</h3>
-        <ul>
-            <li><strong>Sorting Function:</strong> You can sort your collections by selected conditions such as name or creation date.</li>
-            <li><strong>Keyword Search:</strong> Easily access the information you want by searching with keywords, such as specific names, memo content, or tags.</li>
-            </ul>
+        <h3>3. Instant Access to Information! Flexible Display & Search</h3>
+        <ul>
+            <li><strong>Sorting Function:</strong> You can sort your collections by selected conditions such as name or creation date.</li>
+            <li><strong>Keyword Search:</strong> Easily access the information you want by searching with keywords, such as specific names, memo content, or tags.</li>
+        </ul>
 
-        <h3>4. Protect Your Valuable Data! Secure Data Management</h3>
-        <ul>
-            <li><strong>Backup & Restore Function:</strong> Easily back up your data and restore it when needed. Feel secure during device changes or in case of accidental data loss.</li>
-        </ul>
-    </section>
+        <h3>4. Protect Your Valuable Data! Secure Data Management</h3>
+        <ul>
+            <li><strong>Backup & Restore Function:</strong> Easily back up your data and restore it when needed. Feel secure during device changes or in case of accidental data loss.</li>
+        </ul>
+    </section>
 
-    <section>
-        <h2>Why Choose Collection Books?</h2>
-        <ul>
-            <li><strong>Easy to Use & Flexible:</strong> No complex operations required. Anyone can start recording easily, and customize display and entry fields freely.</li>
-            <li><strong>Personalized Records:</strong> Specialized in individual records. You can wholeheartedly record your private "likes."</li>
-            <li><strong>Visually Enjoyable:</strong> With photo registration and customization features, we've made recording itself a fun process.</li>
-        </ul>
-    </section>
+    <section>
+        <h2>Why Choose Collection Books?</h2>
+        <ul>
+            <li><strong>Easy to Use & Flexible:</strong> No complex operations required. Anyone can start recording easily, and customize display and entry fields freely.</li>
+            <li><strong>Personalized Records:</strong> Specialized in individual records. You can wholeheartedly record your private "likes."</li>
+            <li><strong>Visually Enjoyable:</strong> With photo registration and customization features, we've made recording itself a fun process.</li>
+        </ul>
+    </section>
 
-    <section>
-        <h2>Premium Features (Paid Content)</h2>
-        <p>The free version is fully functional, but we also offer paid content for those who want to further enhance their Collection Books.</p>
-        <ul>
-            <li><strong>Page Image Output:</strong> Each created collection page can be exported as an image (PDF, JPG).</li>
-            <li><strong>Batch Output of High-Quality Pages:</strong> Export recorded pages in high quality in a batch. This allows for printing or beautiful sharing of your collections.</li>
-            <li><strong>Collection Data Management:</strong> Import and export data for each collection book.</li>
-        </ul>
-    </section>
+    <section>
+        <h2>Premium Features (Paid Content)</h2>
+        <p>The free version is fully functional, but we also offer paid content for those who want to further enhance their Collection Books.</p>
+        <ul>
+            <li><strong>Page Image Output:</strong> Each created collection page can be exported as an image (PDF, JPG).</li>
+            <li><strong>Batch Output of High-Quality Pages:</strong> Export recorded pages in high quality in a batch. This allows for printing or beautiful sharing of your collections.</li>
+            <li><strong>Collection Data Management:</strong> Import and export data for each collection book.</li>
+        </ul>
+    </section>
 
-    <section style="text-align: center; margin-top: 40px;">
-        <p style="font-size: 1.2em; font-weight: bold;">Start your unique record with Collection Books today! Your passion takes shape here.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.boroishi.collectionbooks" target="_blank">
-            <img alt="Get it on Google Play" src="https://play.google.com/intl/en/badges/static/images/badges/en_badge_web_generic.png" style="height: 90px;"/>
-        </a>
-    </section>
+    <section style="text-align: center; margin-top: 40px;">
+        <p style="font-size: 1.2em; font-weight: bold;">Start your unique record with Collection Books today! Your passion takes shape here.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.boroishi.collectionbooks" target="_blank">
+            <img alt="Get it on Google Play" src="https://play.google.com/intl/en/badges/static/images/badges/en_badge_web_generic.png" style="height: 90px;"/>
+        </a>
+    </section>
 
-    <footer>
-        <p>Contact Us: collectionbooks.official@gmail.com</p>
-        <p>&copy; 2025 Collection Books. All rights reserved.</p>
-        <p><a href="./privacy-policy.html">Privacy Policy</a></p>
-    </footer>
+    <footer>
+        <p>Contact Us: collectionbooks.official@gmail.com</p>
+        <p>&copy; 2025 Collection Books. All rights reserved.</p>
+        <p><a href="./privacy-policy.html">Privacy Policy</a></p>
+    </footer>
 </body>
 </html>
