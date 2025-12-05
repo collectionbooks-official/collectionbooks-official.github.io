@@ -68,7 +68,6 @@
             font-size: 1em;
             cursor: pointer;
         }
-        /* 💡 h1の元の設定: 中央寄せのために、元の margin-bottom: 10px; を継承します */
         h1 { color: #007bff; font-size: 2.8em; margin-bottom: 10px; }
         h2 { color: #555; font-size: 2em; margin-top: 30px; margin-bottom: 15px; }
         h3 { color: #007bff; font-size: 1.5em; margin-top: 25px; margin-bottom: 10px; }
@@ -80,7 +79,6 @@
         .button { display: inline-block; background-color: #007bff; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold; }
         .button:hover { background-color: #0056b3; }
         .app-image { display: block; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        /* 💡 .app-iconの元の設定: 中央寄せのために、元の margin-bottom: 20px; と margin-top: 20px; を継承します */
         .app-icon { 
             width: 120px; 
             height: 120px; 
@@ -93,26 +91,27 @@
         .screenshot-container { flex: 1; min-width: 250px; text-align: center; }
         footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 0.9em; }
 
-        /* 🚀 横並びグループのスタイルを再定義して、マージンをリセットし、親要素にマージンを任せます */
+        /* 🚀 最終修正：アイコンとタイトルを横並びにするグループ */
         .header-title-group {
-            display: flex;
-            align-items: center; /* アイコンとタイトルを垂直方向に中央揃え */
-            /* 💡 外側の<header>の子要素として、マージンはアイコンの元の値(.app-icon)に揃えます */
-            margin-top: 20px;
+            display: inline-flex; /* 💡 親要素(header)の中央揃えを維持するためにinline-flexを使用 */
+            align-items: center; /* 垂直方向に中央揃え */
+            
+            /* 💡 元の .app-icon のマージンをこのグループ全体に継承 */
+            margin-top: 20px; 
             margin-bottom: 20px; 
         }
 
-        /* 💡 グループ内のアイコンは小さくし、マージンをリセットします */
+        /* 💡 グループ内のアイコンのサイズとマージン調整 */
         .header-title-group .app-icon { 
             width: 80px; 
             height: 80px; 
             margin: 0; /* マージンをリセット */
         }
 
-        /* 💡 グループ内のh1はマージンをリセットし、アイコンとの間隔を設けます */
+        /* 💡 グループ内のh1のサイズとマージン調整 */
         .header-title-group h1 { 
-            font-size: 2.5em; 
-            margin: 0; /* h1の元々のマージンをリセット */
+            font-size: 2.5em; /* タイトルサイズを調整 */
+            margin: 0; /* マージンをリセット */
             margin-left: 15px; /* アイコンとタイトルの間のスペース */
         }
     </style>
@@ -165,7 +164,7 @@
         <h2>核心功能</h2>
         <h3>1. 輕鬆記錄你的熱愛</h3>
         <ul>
-            <li><strong>照片與筆記:</strong> 自由新增照片和詳細筆記。你可以上傳多張圖片，從不同角度記錄收藏品の每一個細節。</li>
+            <li><strong>照片與筆記:</strong> 自由新增照片和詳細筆記。你可以上傳多張圖片，從不同角度記錄收藏品的每一個細節。</li>
             <li><strong>自訂標籤:</strong> 建立你自己的標籤，如「類別」、「地點」或「顏色」，以便輕鬆整理和尋找你的頁面。</li>
             <li><strong>常用語:</strong> 節省時間！將常用短語儲存起來，一鍵貼上，高效記錄。</li>
         </ul>
