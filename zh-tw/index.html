@@ -68,6 +68,7 @@
             font-size: 1em;
             cursor: pointer;
         }
+        /* 💡 h1の元の設定: 中央寄せのために、元の margin-bottom: 10px; を継承します */
         h1 { color: #007bff; font-size: 2.8em; margin-bottom: 10px; }
         h2 { color: #555; font-size: 2em; margin-top: 30px; margin-bottom: 15px; }
         h3 { color: #007bff; font-size: 1.5em; margin-top: 25px; margin-bottom: 10px; }
@@ -79,6 +80,7 @@
         .button { display: inline-block; background-color: #007bff; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold; }
         .button:hover { background-color: #0056b3; }
         .app-image { display: block; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        /* 💡 .app-iconの元の設定: 中央寄せのために、元の margin-bottom: 20px; と margin-top: 20px; を継承します */
         .app-icon { 
             width: 120px; 
             height: 120px; 
@@ -91,25 +93,26 @@
         .screenshot-container { flex: 1; min-width: 250px; text-align: center; }
         footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 0.9em; }
 
-        /* 🚀 横並びを可能にし、全体のレイアウトを維持するための修正スタイル */
+        /* 🚀 横並びグループのスタイルを再定義して、マージンをリセットし、親要素にマージンを任せます */
         .header-title-group {
             display: flex;
             align-items: center; /* アイコンとタイトルを垂直方向に中央揃え */
-            margin-top: 20px; /* アイコンの元々のマージンを継承 */
-            margin-bottom: 10px; /* h1の元々のマージンを継承 */
+            /* 💡 外側の<header>の子要素として、マージンはアイコンの元の値(.app-icon)に揃えます */
+            margin-top: 20px;
+            margin-bottom: 20px; 
         }
 
+        /* 💡 グループ内のアイコンは小さくし、マージンをリセットします */
         .header-title-group .app-icon { 
-            width: 80px; /* アイコンを小さく調整 */
+            width: 80px; 
             height: 80px; 
-            border-radius: 25%; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-            margin: 0; /* 個別のマージンをリセット */
+            margin: 0; /* マージンをリセット */
         }
 
+        /* 💡 グループ内のh1はマージンをリセットし、アイコンとの間隔を設けます */
         .header-title-group h1 { 
-            font-size: 2.5em; /* タイトルを調整 */
-            margin: 0; /* 個別のマージンをリセット */
+            font-size: 2.5em; 
+            margin: 0; /* h1の元々のマージンをリセット */
             margin-left: 15px; /* アイコンとタイトルの間のスペース */
         }
     </style>
