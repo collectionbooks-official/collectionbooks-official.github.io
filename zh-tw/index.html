@@ -68,7 +68,6 @@
             font-size: 1em;
             cursor: pointer;
         }
-        /* Original h1 style, will be overridden by the more specific .header-title-group h1 */
         h1 { color: #007bff; font-size: 2.8em; margin-bottom: 10px; }
         h2 { color: #555; font-size: 2em; margin-top: 30px; margin-bottom: 15px; }
         h3 { color: #007bff; font-size: 1.5em; margin-top: 25px; margin-bottom: 10px; }
@@ -80,7 +79,6 @@
         .button { display: inline-block; background-color: #007bff; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold; }
         .button:hover { background-color: #0056b3; }
         .app-image { display: block; max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        /* Original .app-icon style, will be overridden by the more specific .header-title-group .app-icon */
         .app-icon { 
             width: 120px; 
             height: 120px; 
@@ -93,26 +91,26 @@
         .screenshot-container { flex: 1; min-width: 250px; text-align: center; }
         footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 0.9em; }
 
-        /* 新增的樣式：將圖示和標題橫向排列 */
+        /* 🚀 横並びを可能にし、全体のレイアウトを維持するための修正スタイル */
         .header-title-group {
             display: flex;
-            align-items: center; /* 垂直居中對齊 */
-            margin-top: 20px;
-            margin-bottom: 10px;
+            align-items: center; /* アイコンとタイトルを垂直方向に中央揃え */
+            margin-top: 20px; /* アイコンの元々のマージンを継承 */
+            margin-bottom: 10px; /* h1の元々のマージンを継承 */
         }
 
         .header-title-group .app-icon { 
-            width: 80px; /* 調整圖示大小 */
+            width: 80px; /* アイコンを小さく調整 */
             height: 80px; 
             border-radius: 25%; 
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-            margin: 0; /* 移除預設邊距 */
+            margin: 0; /* 個別のマージンをリセット */
         }
 
         .header-title-group h1 { 
-            font-size: 2.5em; /* 調整標題大小 */
-            margin: 0; /* 移除預設邊距 */
-            margin-left: 15px; /* 圖示與標題之間的間距 */
+            font-size: 2.5em; /* タイトルを調整 */
+            margin: 0; /* 個別のマージンをリセット */
+            margin-left: 15px; /* アイコンとタイトルの間のスペース */
         }
     </style>
 </head>
@@ -164,7 +162,7 @@
         <h2>核心功能</h2>
         <h3>1. 輕鬆記錄你的熱愛</h3>
         <ul>
-            <li><strong>照片與筆記:</strong> 自由新增照片和詳細筆記。你可以上傳多張圖片，從不同角度記錄收藏品的每一個細節。</li>
+            <li><strong>照片與筆記:</strong> 自由新增照片和詳細筆記。你可以上傳多張圖片，從不同角度記錄收藏品の每一個細節。</li>
             <li><strong>自訂標籤:</strong> 建立你自己的標籤，如「類別」、「地點」或「顏色」，以便輕鬆整理和尋找你的頁面。</li>
             <li><strong>常用語:</strong> 節省時間！將常用短語儲存起來，一鍵貼上，高效記錄。</li>
         </ul>
