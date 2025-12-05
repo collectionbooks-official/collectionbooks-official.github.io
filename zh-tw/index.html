@@ -87,18 +87,6 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
             margin-top: 20px;
         }
-        /* 🖼️ 追加: ヒーロー画像のスタイル */
-        .hero-image {
-            display: block;
-            width: 100%; /* 親要素 (header) の幅いっぱいに表示 */
-            max-width: 960px; /* bodyの最大幅を超えないように設定 */
-            height: auto;
-            border-radius: 8px;
-            margin-top: 15px; /* 言語スイッチャーからのマージン */
-            margin-bottom: 30px; /* 下部コンテンツ（アイコン）へのマージン */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
         .screenshots-row { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; margin-bottom: 20px; }
         .screenshot-container { flex: 1; min-width: 250px; text-align: center; }
         footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #777; font-size: 0.9em; }
@@ -124,8 +112,8 @@
                 <option value="https://collectionbooks-official.github.io/zh-tw/" hreflang="zh-tw" selected>繁體中文</option>
             </select>
         </div>
-        
-        <img src="/hero_image.jpg" alt="收藏圖鑑 App ヒーロー画像" class="hero-image">
+
+        <img src="/hero_image.jpg" alt="收藏圖鑑 主視覺圖" class="app-image" style="margin-top: 20px; margin-bottom: 20px;">
         
         <img src="/app_icon.jpg" alt="收藏圖鑑 App 圖示" class="app-icon">
         <h1>收藏圖鑑: 我的創意手冊</h1>
@@ -177,11 +165,12 @@
     </section>
 
     <section>
-        <h2>為什麼選擇收藏圖鑑？ </h2>
+        <h2>為什麼選擇收藏圖鑑？</h2>
         <ul>
             <li><strong>簡單靈活:</strong> 無需複雜操作，人人都能輕鬆上手，並自由客製化每一個細節。</li>
             <li><strong>專屬私密:</strong> 這是一個只屬於你的空間，專注於記錄你的個人愛好。</li>
             <li><strong>視覺享受:</strong> 拍照和客製化功能讓記錄過程充滿樂趣。</li>
+            
         </ul>
     </section>
 
